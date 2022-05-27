@@ -4,8 +4,8 @@ function getEmployeeByName(employeeName) {
   if (!employeeName) {
     return {};
   }
-  const filterCondition = (element) => element.lastName === employeeName;
-  return data.employees.filter(filterCondition);
+  const findCondition = (element) => element.lastName === employeeName;
+  return data.employees.find(findCondition);
 }
 
 module.exports = getEmployeeByName;

@@ -38,3 +38,4 @@ console.log(data);
 
 // --- Referêcias: ---
 // https://stackoverflow.com/questions/411352/how-best-to-determine-if-an-argument-is-not-sent-to-the-javascript-function
+// https://www.w3schools.com/jsref/jsref_includes_array.asp
