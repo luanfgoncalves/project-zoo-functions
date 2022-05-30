@@ -24,7 +24,7 @@ module.exports = { isManager, getRelatedEmployees };
 console.log('--- testes ---');
 console.log(isManager()); // false
 console.log(isManager('56d43ba3-a5a7-40f6-8dd7-cbb05082383f')); // false
-console.log(isManager('stephanieId')); // true
+console.log(isManager('stephanieId'); // true
 console.log(isManager('burlId'));
 console.log(isManager('olaId'));
 console.log(isManager('inexistente')); // false
