@@ -44,3 +44,4 @@ describe('Testes da função HandlerElephants', () => {
 // 1- inserir testes vazios com todos as descrições do que será verificado.
 // 2- adiciona os parâmetros para a função dentro dos testes.
 // 3- adiciona os valores relativos aos elefantes conforme os dados em zoo_data
+// 4- insire testes para checar retorno indefinido na falta de parâmetros, case sentive e retorno nulo para parâmetros inadequados.
