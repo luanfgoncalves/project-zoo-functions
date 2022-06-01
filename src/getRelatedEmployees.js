@@ -1,7 +1,6 @@
 const data = require('../data/zoo_data');
 
 function isManager(id) {
-  // --- some ---
   const someCondition = (element) => element.managers.includes(id);
   return data.employees.some(someCondition);
 }
@@ -18,16 +17,6 @@ function getRelatedEmployees(managerId) {
 }
 
 module.exports = { isManager, getRelatedEmployees };
-
-// --- Testes ---
-
-console.log('--- testes ---');
-console.log(isManager()); // false
-console.log(isManager('56d43ba3-a5a7-40f6-8dd7-cbb05082383f')); // false
-console.log(isManager('stephanieId'); // true
-console.log(isManager('burlId'));
-console.log(isManager('olaId'));
-console.log(isManager('inexistente')); // false
 
 // --- Organização isManager ---
 // 1 - Cria um find que busca se o parâmnetro passado à função(id do funcionário) está incluso entre os gerentes de algum funcionário(data.emplyees.managers)

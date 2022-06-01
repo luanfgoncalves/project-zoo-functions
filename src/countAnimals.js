@@ -21,10 +21,6 @@ function countAnimals(animal) {
 
 module.exports = countAnimals;
 
-// --- testes ---
-
-console.log
-
 // --- Lógica e organização ---
 // 1-
 // 2-
