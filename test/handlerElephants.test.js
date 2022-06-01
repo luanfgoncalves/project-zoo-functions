@@ -38,6 +38,9 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants('availability')).toEqual(['Friday', 'Saturday', 'Sunday', 'Tuesday']);
     expect(handlerElephants('names')).not.toContain('Monday');
   });
+  test('Verifica se handlerElephants retorna o esperado se receber um objheto vazio como parâmetro', () => {
+    expect(handlerElephants({})).toEqual('Parâmetro inválido, é necessário uma string');
+  });
 });
 
 // --- Organização e lógica ---
