@@ -16,15 +16,15 @@ module.exports = getAnimalsOlderThan;
 
 // --- testes ---
 
-console.log(getAnimalsOlderThan());
-console.log('---');
-console.log(getAnimalsOlderThan('lions', 5));
-console.log('---');
-console.log(getAnimalsOlderThan('tigers', 18));
-console.log('---');
-console.log(getAnimalsOlderThan('otters', 7));
-console.log('---');
-console.log(getAnimalsOlderThan('penguins', 10));
+// console.log(getAnimalsOlderThan());
+// console.log('---');
+// console.log(getAnimalsOlderThan('lions', 5));
+// console.log('---');
+// console.log(getAnimalsOlderThan('tigers', 18));
+// console.log('---');
+// console.log(getAnimalsOlderThan('otters', 7));
+// console.log('---');
+// console.log(getAnimalsOlderThan('penguins', 10));
 
 // --- Organização e Lógica ---
 

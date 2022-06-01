@@ -12,10 +12,10 @@ module.exports = getEmployeeByName;
 
 // --- testes ---
 
-console.log(getEmployeeByName());
-console.log(getEmployeeByName('Emery'));
-console.log(getEmployeeByName('Wishart'));
-console.log(getEmployeeByName('inexistente'));
+// console.log(getEmployeeByName());
+// console.log(getEmployeeByName('Emery'));
+// console.log(getEmployeeByName('Wishart'));
+// console.log(getEmployeeByName('inexistente'));
 
 // --- Organização e Lógica ---
 
