@@ -4,7 +4,7 @@ function getEmployeeByName(employeeName) {
   if (!employeeName) {
     return {};
   }
-  const findCondition = (element) => element.lastName === employeeName;
+  const findCondition = (obj) => obj.lastName === employeeName || obj.firstName === employeeName;
   return data.employees.find(findCondition);
 }
 
@@ -13,7 +13,8 @@ module.exports = getEmployeeByName;
 // --- testes ---
 
 console.log(getEmployeeByName());
-console.log(getEmployeeByName('Nelson'));
+console.log(getEmployeeByName('Emery'));
+console.log(getEmployeeByName('Wishart'));
 console.log(getEmployeeByName('inexistente'));
 
 // --- Organização e Lógica ---
