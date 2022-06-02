@@ -1,12 +1,9 @@
 const data = require('../data/zoo_data');
 
 function countEntrants(entrants) {
-  const childFilterCondition = (element) => element.age < 18;
-  const childEntrants = entrants.filter(childFilterCondition);
-  const adultFilterCondition = (element) => element.age >= 18 && element.age < 50;
-  const adultEntrants = entrants.filter(adultFilterCondition);
-  const seniorFilterCondition = (element) => element.age >= 50;
-  const seniorEntrants = entrants.filter(seniorFilterCondition);
+  const childEntrants = entrants.filter((element) => element.age < 18);
+  const adultEntrants = entrants.filter((element) => element.age >= 18 && element.age < 50);
+  const seniorEntrants = entrants.filter((element) => element.age >= 50);
   return {
     child: childEntrants.length,
     adult: adultEntrants.length,
@@ -15,7 +12,7 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  if (!entrants || entrants.length === 0) {
+  if (!entrants || Object.keys(entrants).length === 0) {
     return 0;
   }
   const entrantInfo = countEntrants(entrants);
