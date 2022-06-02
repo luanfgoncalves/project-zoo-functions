@@ -37,23 +37,28 @@ const animalSchedule = (animal) => {
   return foundAnimals.availability;
 };
 
-// --- Função que catalóga os animais exibidos conforme o dia ---
+// --- Função que recupera animais pelo dia ---
 const animalExibitions = (weekDay) => {
-  const animalsOfTheDay = [];
-  const animalSeacherCondition = (element) => element.availability.some((obj) => obj === weekDay);
-  const animalSeacherByDay = data.species.filter(animalSeacherCondition);
-  animalSeacherByDay.forEach((element) => animalsOfTheDay.push(element.name));
-  return animalsOfTheDay;
+  const SeacherCondition = (element) => element.availability.includes(weekDay);
+  const animalSeacher = data.species.filter(SeacherCondition);
+  const mapCondition = (element) => element.name;
+  const desiredAnimals = animalSeacher.map(mapCondition);
+  return desiredAnimals;
 };
 
 // --- Funções que lidam com dias da semana ---
 const dayList = Object.keys(data.hours);
-const daySchedule = dayList.map((element) => {
-  return {
-    officeHour: `Open from ${data.hours[element].open}am until ${data.hours[element].close}pm`,
-    exhibition: animalExibitions(element),
+const daySchedule = (element) => {
+  const openTime = data.hours[element].open;
+  const closeTime = data.hours[element].close;
+  const desiredAnswer = {
+    [element]: {
+      officeHour: `Open from ${openTime}am until ${closeTime}pm`,
+      exhibition: animalExibitions(element),
+    },
   };
-});
+  return desiredAnswer;
+};
 
 // --- Função identificadora de tipo de parâmetros ---
 const complexitySkipper = (skipperParam) => {
@@ -81,50 +86,6 @@ module.exports = getSchedule;
 // 1- adiciona uma condição de busca para foundAnimals em que o array de disponibilidade é retornado conforme o nome do animal
 // 2- adiciona um if para checar se o parâmetro é adequado, e caso não seja retorna um Objeto contendo os horários completos do zoologico.
 // 3 - pqp, s~tres da manhã, dps eu faço um fluxograma.
+// 4- dscp pessoa que for fazer code review :(
 
-// const completeSchedule = {
-//   Tuesday: {
-//     officeHour: 'Open from 8am until 6pm',
-//     exhibition: ['lions', 'tigers', 'bears', 'penguins', 'elephants', 'giraffes'],
-//   },
-//   Wednesday: {
-//     officeHour: 'Open from 8am until 6pm',
-//     exhibition: ['tigers', 'bears', 'penguins', 'otters', 'frogs', 'giraffes'],
-//   },
-//   Thursday: {
-//     officeHour: 'Open from 10am until 8pm',
-//     exhibition: ['lions', 'otters', 'frogs', 'snakes', 'giraffes'],
-//   },
-//   Friday: {
-//     officeHour: 'Open from 10am until 8pm',
-//     exhibition: ['tigers', 'otters', 'frogs', 'snakes', 'elephants', 'giraffes'],
-//   },
-//   Saturday: {
-//     officeHour: 'Open from 8am until 10pm',
-//     exhibition: ['lions', 'tigers', 'bears', 'penguins', 'otters', 'frogs', 'snakes', 'elephants'],
-//   },
-//   Sunday: {
-//     officeHour: 'Open from 8am until 8pm',
-//     exhibition: ['lions', 'bears', 'penguins', 'snakes', 'elephants'],
-//   },
-//   Monday: { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' },
-// };
-
-// function getDefaultSchedule(day) {
-//   const opening = Object.values(data.hours[day])[0];
-//   const closing = Object.values(data.hours[day])[1];
-//   const mapCdt = ({ name }) => name;
-//   return {
-//     officeHour: `Open from ${opening}am until ${closing}pm`,
-//     exhibition: data.species.filter((obj) => obj.availability.includes(day)).map(mapCdt),
-//   };
-// }
-// const completeSchedule = {
-//   Tuesday: getDefaultSchedule('Tuesday'),
-//   Wednesday: getDefaultSchedule('Wednesday'),
-//   Thursday: getDefaultSchedule('Thursday'),
-//   Friday: getDefaultSchedule('Friday'),
-//   Saturday: getDefaultSchedule('Saturday'),
-//   Sunday: getDefaultSchedule('Sunday'),
-//   Monday: { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' },
-// };
+// referencias: https://stackoverflow.com/questions/52933643/javascript-how-to-convert-function-parameters-to-object
